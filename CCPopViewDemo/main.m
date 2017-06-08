@@ -1,9 +1,9 @@
 //
 //  main.m
-//  CCPopView
+//  CCPopViewDemo
 //
-//  Created by xbwu on 16/12/21.
-//  Copyright © 2016年 xbwu. All rights reserved.
+//  Created by xbwu on 2017/6/8.
+//  Copyright © 2017年 xbwu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
