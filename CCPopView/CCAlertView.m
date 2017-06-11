@@ -43,7 +43,7 @@
   alert.title = string;
   alert.layer.cornerRadius = 5;
   alert.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
-  [alert performSelector:@selector(show:) withObject:@(animated) afterDelay:0.1];
+  [alert show:@(animated)];
   return alert;
 }
 

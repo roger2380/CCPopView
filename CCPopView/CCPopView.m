@@ -55,7 +55,7 @@
 
 + (CCPopView *)showInView:(UIView *)view animated:(BOOL)animated {
   CCPopView *popView = [self popForView:view];
-  [popView performSelector:@selector(show:) withObject:@(animated) afterDelay:0.1];
+  [popView show:@(animated)];
   return popView;
 }
 
@@ -123,28 +123,25 @@
 + (void)hideFrom:(UIView *)view animated:(BOOL)animated afterDelay:(NSTimeInterval)delay {
   CCPopView *popView = objc_getAssociatedObject(view, (__bridge const void *)([self class]));
   if (popView) {
-    [popView hide:NO afterDelay:delay];
+    [popView hide:animated afterDelay:delay];
   }
 }
 
 + (void)hideFrom:(UIView *)view animated:(BOOL)animated {
   CCPopView *popView = objc_getAssociatedObject(view, (__bridge const void *)([self class]));
   if (popView) {
-    [popView hide:NO];
+    [popView hide:animated];
   }
 }
 
 - (void)hide:(BOOL)animated {
   [self performSelector:@selector(hideDelayed:)
-             withObject:@(NO)];
+             withObject:@(animated)];
 }
 
 - (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay {
-//  if (delay < 0.2 && animated) {
-//    delay = 0.2;
-//  }
   [self performSelector:@selector(hideDelayed:)
-             withObject:@(NO)
+             withObject:@(animated)
              afterDelay:delay];
 }
 
@@ -168,7 +165,7 @@
                      animations:^{
                        self.transform = CGAffineTransformConcat(CGAffineTransformIdentity,
                                                                 CGAffineTransformMakeScale(0.5f, 0.5f));
-                       self.alpha = 0.02f;
+                       self.alpha = 0.2f;
                      }
                      completion:^(BOOL finished) {
                        [self _hide];

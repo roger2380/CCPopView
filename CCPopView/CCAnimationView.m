@@ -37,7 +37,7 @@
 #else
   popView.frame = CGRectMake(0, 0, 100, 100);
 #endif
-  [popView performSelector:@selector(show:) withObject:@(animated) afterDelay:0.1];
+  [popView show:@(animated)];
   return popView;
 }
 
