@@ -11,7 +11,12 @@
 
 @interface CCPopConfig : NSObject
 
++ (void)setFontForTitle:(UIFont *)font;
++ (void)setAnimationSize:(CGSize)size;
++ (void)setAnimationImages:(NSArray *)images;
+
 + (UIFont *)fontForTitle;
 + (CGSize)animationSize;
++ (NSArray *)animationImages;
 
 @end

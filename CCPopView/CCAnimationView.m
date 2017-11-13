@@ -9,6 +9,7 @@
 #import "CCAnimationView.h"
 #import "CCPopConfig.h"
 #import "CCPopView+Private.h"
+#import "CCPopConfig.h"
 
 @interface CCAnimationContentView : UIImageView
 
@@ -27,11 +28,10 @@
     [self addSubview:_imageView];
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 28; i++) {
-      NSString *imageName = [NSString stringWithFormat:@"loading-%d", 1 + i];
-      [array addObject:[UIImage imageNamed:imageName]];
+    for (UIImage *image in [CCPopConfig animationImages]) {
+      [array addObject:image];
     }
-    _imageView.animationImages = array;
+    _imageView.animationImages = array.copy;
   }
   return _imageView;
 }
@@ -45,7 +45,6 @@
 @interface CCAnimationView() {
   
 }
-
 
 @end
 
@@ -69,7 +68,6 @@
 
 - (void)showInView:(UIView *)view animated:(BOOL)animated {
   CCAnimationContentView *contentView = [[CCAnimationContentView alloc] init];
-  contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
   self.contentView = contentView;
   [super showInView:view animated:animated];
 }

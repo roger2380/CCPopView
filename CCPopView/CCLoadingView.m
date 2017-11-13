@@ -54,7 +54,6 @@
     self.indicatorView.center = CGPointMake(self.frame.size.width/2.0,
                                             self.frame.size.height/2.0);
   } else {
-    self.frame = CGRectMake(0, 0, size.width + 30, size.height + 55);
     self.titleLabel.frame = CGRectMake(15, 40, size.width, size.height);
     self.indicatorView.center = CGPointMake(self.frame.size.width/2.0, 25);
   }
@@ -90,6 +89,8 @@
 - (void)showInView:(UIView *)view title:(NSString *)string animated:(BOOL)animated {
   CCLoadingContentView *contentView = [[CCLoadingContentView alloc] init];
   contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+  contentView.layer.cornerRadius = 5;
+  contentView.clipsToBounds = YES;
   self.title = string;
   contentView.titleLabel.text = string;
   self.contentView = contentView;

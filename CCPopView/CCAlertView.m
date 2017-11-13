@@ -10,7 +10,6 @@
 #import "CCPopConfig.h"
 #import "CCPopView+Private.h"
 
-
 @interface CCAlertContentView : UIView
 
 @property (nonatomic, strong) NSString *title;
@@ -57,7 +56,6 @@
 
 @implementation CCAlertView
 
-
 + (CCPopView *)showInView:(UIView *)view title:(NSString *)string {
   return [self showInView:view title:string animated:NO];
 }
@@ -76,6 +74,8 @@
   CCAlertContentView *contentView = [[CCAlertContentView alloc] init];
   contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
   self.title = string;
+  contentView.layer.cornerRadius = 5;
+  contentView.clipsToBounds = YES;
   contentView.titleLabel.text = string;
   self.contentView = contentView;
   [super showInView:view animated:animated];
@@ -83,18 +83,6 @@
 
 - (CGSize)size {
   return [CCAlertContentView sizeForTitle:self.title];
-}
-
-//- (void)setTitle:(NSString *)title {
-//  self.titleLabel.text = title;
-//  CGSize size = [self.titleLabel.text sizeWithFont:self.titleLabel.font
-//                                 constrainedToSize:CGSizeMake(300, 10000)];
-//  self.frame = CGRectMake(0, 0, size.width + 30, size.height + 30);
-//  self.titleLabel.frame = CGRectMake(15, 15, size.width, size.height);
-//}
-
-- (void)layoutSubviews {
-  [super layoutSubviews];
 }
 
 @end

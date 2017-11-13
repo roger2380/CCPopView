@@ -41,7 +41,6 @@
 {
   self = [super initWithFrame:frame];
   if (self) {
-    self.alpha = 0;
     self.autoresizingMask =  UIViewAutoresizingFlexibleTopMargin
                            | UIViewAutoresizingFlexibleBottomMargin
                            | UIViewAutoresizingFlexibleLeftMargin
@@ -52,6 +51,11 @@
 
 + (BOOL)retainEnable {
   return YES;
+}
+
+- (void)setContentView:(UIView *)contentView {
+  [_contentView removeFromSuperview];
+  _contentView = contentView;
 }
 
 + (CCPopView *)showInView:(UIView *)view {
@@ -76,8 +80,8 @@
     self.countRetain++;
   }
   CGSize size = [self size];
-  self.frame = CGRectMake(0, 0, size.width, size.height);
-  self.contentView.frame = CGRectMake(0, 0, size.width, size.height);
+  self.frame = CGRectMake(0, 0, size.width * 1.1, size.height * 1.1);
+  self.contentView.frame = CGRectMake(0.05 * size.width, 0.05 * size.height, size.width, size.height);
   [self setNeedsLayout];
   [self.contentView setNeedsLayout];
   [self show:@(animated)];

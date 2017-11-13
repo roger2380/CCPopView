@@ -19,6 +19,6 @@
 - (CGSize)size;
 
 @property (nonatomic, assign) int countRetain;
-@property (nonatomic, assign) UIView *contentView;
+@property (nonatomic, strong) UIView *contentView;
 
 @end

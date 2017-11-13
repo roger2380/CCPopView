@@ -10,12 +10,39 @@
 
 @implementation CCPopConfig
 
+static UIFont *sFontForTitle = nil;
+static CGSize sAnimationSize;
+static NSArray *sAnimationImages = nil;
+
++ (void)setFontForTitle:(UIFont *)font {
+  sFontForTitle = font;
+}
+
++ (void)setAnimationSize:(CGSize)size {
+  sAnimationSize = size;
+}
+
 + (UIFont *)fontForTitle {
-  return [UIFont systemFontOfSize:15];
+  if (sFontForTitle == nil) {
+    return [UIFont systemFontOfSize:15];
+  }
+  return sFontForTitle;
 }
 
 + (CGSize)animationSize {
-  return CGSizeMake(100, 100);
+  if (CGSizeEqualToSize(sAnimationSize, CGSizeZero) ) {
+    return CGSizeMake(100, 100);
+  }
+  return sAnimationSize;
+}
+
++ (NSArray *)animationImages {
+  return sAnimationImages;
+}
+
++ (void)setAnimationImages:(NSArray *)images {
+  sAnimationImages = images;
 }
 
 @end
+

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "CCPopView.h"
+#import "CCLoadingView.h"
 #import "CCAlertView.h"
 #import "CCAnimationView.h"
 
@@ -23,13 +23,13 @@
   UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
   [self.view addSubview:btn];
   btn.backgroundColor = [UIColor redColor];
-  btn.frame = CGRectMake(100, 100, 50, 50);
+  btn.frame = CGRectMake(100, 100, 100, 100);
   [btn addTarget:self action:@selector(show) forControlEvents:UIControlEventTouchUpInside];
   
   
   btn = [UIButton buttonWithType:UIButtonTypeCustom];
   [self.view addSubview:btn];
-  btn.frame = CGRectMake(100, 200, 50, 50);
+  btn.frame = CGRectMake(100, 400, 100, 100);
   btn.backgroundColor = [UIColor greenColor];
   [btn addTarget:self action:@selector(show1) forControlEvents:UIControlEventTouchUpInside];
   
@@ -37,11 +37,11 @@
 }
 
 - (void)show {
-  [CCAlertView showInView:self.view title:@"test--test\ntesteeee"];
+  [[CCAlertView showInViewWithAnimation:self.view title:@"我的 的 的的的的\ntesteeeetest--test\ntesteeee"] hide:YES afterDelay:2];
 }
 
 - (void)show1 {
-  [CCAnimationView showInView:self.view];
+  [CCLoadingView showInViewWithAnimation:self.view title:@"我的 的 的的的的\ntesteeee"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,3 +51,4 @@
 
 
 @end
+
