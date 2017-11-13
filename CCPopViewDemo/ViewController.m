@@ -37,13 +37,11 @@
 }
 
 - (void)show {
-  [CCAlertView showInView:self.view title:@"test--test\ntesteeee" animated:YES];
-  [CCAlertView hideFrom:self.view animated:YES afterDelay:1];
+  [CCAlertView showInView:self.view title:@"test--test\ntesteeee"];
 }
 
 - (void)show1 {
-  [CCAnimationView showInView:self.view animated:YES];
-  [CCAnimationView hideFrom:self.view animated:YES afterDelay:3];
+  [CCAnimationView showInView:self.view];
 }
 
 - (void)didReceiveMemoryWarning {

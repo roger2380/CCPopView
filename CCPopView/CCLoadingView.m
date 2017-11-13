@@ -8,9 +8,9 @@
 
 #import "CCLoadingView.h"
 #import "CCPopView+Private.h"
+#import "CCPopConfig.h"
 
-@interface CCLoadingView () {
-}
+@interface CCLoadingContentView : UIView
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -18,21 +18,17 @@
 
 @end
 
-@implementation CCLoadingView
+@implementation CCLoadingContentView
 
 - (UILabel *)titleLabel {
   if (_titleLabel == nil) {
     _titleLabel = [[UILabel alloc] init];
     _titleLabel.numberOfLines = 0;
     _titleLabel.backgroundColor = [UIColor clearColor];
-    [self addSubview:_titleLabel];
     _titleLabel.textColor = [UIColor whiteColor];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
-#ifdef CCALERT_TITLE_FONT
-    _titleLabel.font = CCALERT_TITLE_FONT;
-#else
-    _titleLabel.font = [UIFont systemFontOfSize:15];
-#endif
+    _titleLabel.font = [CCPopConfig fontForTitle];
+    [self addSubview:_titleLabel];
   }
   return _titleLabel;
 }
@@ -45,43 +41,75 @@
   return _indicatorView;
 }
 
-+ (CCLoadingView*)showInView:(UIView *)view title:(NSString *)string animated:(BOOL)animated {
-  CCLoadingView *alert = (CCLoadingView *)[self popForView:view];
-  alert.title = string;
-  alert.layer.cornerRadius = 5;
-  alert.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
-  [alert show:@(animated)];
-  return alert;
++ (CGSize)sizeForTitle:(NSString *)title {
+  CGSize size = [title sizeWithFont:[CCPopConfig fontForTitle]
+                        constrainedToSize:CGSizeMake(300, 10000)];
+  return CGSizeMake(size.width + 30, size.height + 55);
 }
 
-- (void)show:(NSNumber*)animated {
-  [super show:animated];
-  [self.indicatorView startAnimating];
-}
-
-- (void)_hide {
-  [super _hide];
-  [self.indicatorView stopAnimating];
-}
-
-- (void)setTitle:(NSString *)title {
-  self.titleLabel.text = title;
+- (void)layoutSubviews {
   CGSize size = [self.titleLabel.text sizeWithFont:self.titleLabel.font
                                  constrainedToSize:CGSizeMake(300, 10000)];
   if (size.height == 0 || size.width == 0)  {
-    self.frame = CGRectMake(0, 0, 50, 50);
     self.indicatorView.center = CGPointMake(self.frame.size.width/2.0,
                                             self.frame.size.height/2.0);
-  }
-  else {
+  } else {
     self.frame = CGRectMake(0, 0, size.width + 30, size.height + 55);
     self.titleLabel.frame = CGRectMake(15, 40, size.width, size.height);
     self.indicatorView.center = CGPointMake(self.frame.size.width/2.0, 25);
   }
 }
 
-- (void)layoutSubviews {
-  [super layoutSubviews];
+@end
+
+@interface CCLoadingView () {
+  
+}
+
+@property (nonatomic, strong) NSString *title;
+
+@end
+
+@implementation CCLoadingView
+
+
++ (CCPopView *)showInView:(UIView *)view title:(NSString *)string {
+  return [self showInView:view title:string animated:NO];
+}
+
++ (CCPopView *)showInViewWithAnimation:(UIView *)view title:(NSString *)string {
+  return [self showInView:view title:string animated:YES];
+}
+
++ (CCLoadingView *)showInView:(UIView *)view title:(NSString *)string animated:(BOOL)animated {
+  CCLoadingView *popView = [self popForView:view];
+  [popView showInView:view title:string animated:animated];
+  return popView;
+}
+
+- (void)showInView:(UIView *)view title:(NSString *)string animated:(BOOL)animated {
+  CCLoadingContentView *contentView = [[CCLoadingContentView alloc] init];
+  contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+  self.title = string;
+  contentView.titleLabel.text = string;
+  self.contentView = contentView;
+  [super showInView:view animated:animated];
+}
+
+- (CGSize)size {
+  return [CCLoadingContentView sizeForTitle:self.title];
+}
+
+- (void)show:(NSNumber *)animated {
+  [super show:animated];
+  CCLoadingContentView *contentView = (CCLoadingContentView *)self.contentView;
+  [contentView.indicatorView startAnimating];
+}
+
+- (void)_hide {
+  [super _hide];
+  CCLoadingContentView *contentView = (CCLoadingContentView *)self.contentView;
+  [contentView.indicatorView stopAnimating];
 }
 
 @end

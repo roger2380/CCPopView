@@ -10,6 +10,7 @@
 
 @interface CCLoadingView : CCPopView
 
-+ (CCLoadingView *)showInView:(UIView *)view title:(NSString *)string animated:(BOOL)animated;
++ (CCPopView *)showInView:(UIView *)view title:(NSString *)string;
++ (CCPopView *)showInViewWithAnimation:(UIView *)view title:(NSString *)string;
 
 @end

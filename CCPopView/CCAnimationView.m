@@ -10,36 +10,13 @@
 #import "CCPopConfig.h"
 #import "CCPopView+Private.h"
 
-@interface CCAnimationView() {
-  
-}
+@interface CCAnimationContentView : UIImageView
 
 @property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
-@implementation CCAnimationView
-
-- (void)show:(NSNumber*)animated {
-  [super show:animated];
-  [self.imageView startAnimating];
-}
-
-- (void)_hide {
-  [super _hide];
-  [self.imageView stopAnimating];
-}
-
-+ (CCAnimationView *)showInView:(UIView *)view animated:(BOOL)animated {
-  CCAnimationView *popView = [self popForView:view];
-#ifdef CCANIMATION_SIZE
-  popView.frame = CGRectMake(0, 0, CCANIMATION_SIZE.width, CCANIMATION_SIZE.height);
-#else
-  popView.frame = CGRectMake(0, 0, 100, 100);
-#endif
-  [popView show:@(animated)];
-  return popView;
-}
+@implementation CCAnimationContentView
 
 - (UIImageView *)imageView {
   if (_imageView == nil) {
@@ -50,7 +27,7 @@
     [self addSubview:_imageView];
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 30; i++) {
+    for (int i = 0; i < 28; i++) {
       NSString *imageName = [NSString stringWithFormat:@"loading-%d", 1 + i];
       [array addObject:[UIImage imageNamed:imageName]];
     }
@@ -60,10 +37,41 @@
 }
 
 - (void)layoutSubviews {
-  self.imageView.frame = CGRectMake(0, 0,
-                                    self.frame.size.width,
-                                    self.frame.size.height);
-  [super layoutSubviews];
+  self.imageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+}
+
+@end
+
+@interface CCAnimationView() {
+  
+}
+
+
+@end
+
+@implementation CCAnimationView
+
+- (void)show:(NSNumber*)animated {
+  [super show:animated];
+  CCAnimationContentView *contentView = (CCAnimationContentView *)self.contentView;
+  [contentView startAnimating];
+}
+
+- (void)_hide {
+  [super _hide];
+  CCAnimationContentView *contentView = (CCAnimationContentView *)self.contentView;
+  [contentView stopAnimating];
+}
+
+- (CGSize)size {
+  return [CCPopConfig animationSize];
+}
+
+- (void)showInView:(UIView *)view animated:(BOOL)animated {
+  CCAnimationContentView *contentView = [[CCAnimationContentView alloc] init];
+  contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+  self.contentView = contentView;
+  [super showInView:view animated:animated];
 }
 
 @end

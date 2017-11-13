@@ -13,6 +13,7 @@
 }
 
 @property (nonatomic, assign) int countRetain;
+@property (nonatomic, strong) UIView *contentView;
 
 @end
 
@@ -53,10 +54,37 @@
   return YES;
 }
 
++ (CCPopView *)showInView:(UIView *)view {
+  return [self showInView:view animated:NO];
+}
+
++ (CCPopView *)showInViewWithAnimation:(UIView *)view {
+  return [self showInView:view animated:YES];
+}
+
 + (CCPopView *)showInView:(UIView *)view animated:(BOOL)animated {
   CCPopView *popView = [self popForView:view];
-  [popView show:@(animated)];
+  [popView showInView:view animated:animated];
   return popView;
+}
+
+- (void)showInView:(UIView *)view animated:(BOOL)animated {
+  [view addSubview:self.maskView];
+  [view addSubview:self];
+  [self addSubview:self.contentView];
+  if ([[self class] retainEnable]) {
+    self.countRetain++;
+  }
+  CGSize size = [self size];
+  self.frame = CGRectMake(0, 0, size.width, size.height);
+  self.contentView.frame = CGRectMake(0, 0, size.width, size.height);
+  [self setNeedsLayout];
+  [self.contentView setNeedsLayout];
+  [self show:@(animated)];
+}
+
+- (CGSize)size {
+  return CGSizeZero;
 }
 
 + (id)popForView:(UIView *)view {
@@ -69,26 +97,18 @@
     popView = [[[self class] alloc] init];
     objc_setAssociatedObject(view, (__bridge const void *)([self class]), popView, OBJC_ASSOCIATION_RETAIN);
   }
-  [view addSubview:popView.maskView];
-  [view addSubview:popView];
-  if ([self retainEnable]) {
-    popView.countRetain++;
-  }
-  [popView.layer removeAllAnimations];
-  popView.transform = CGAffineTransformIdentity;
-  [popView setNeedsLayout];
   return popView;
 }
 
-- (void)show:(NSNumber*)animated {
+- (void)show:(NSNumber *)animated {
   if ([animated boolValue]) {
-    self.alpha = 0.0f;
-    self.transform = CGAffineTransformConcat(CGAffineTransformIdentity,
-                                             CGAffineTransformMakeScale(0.3, 0.3));
+    self.contentView.alpha = 0.0f;
+    self.contentView.transform = CGAffineTransformConcat(CGAffineTransformIdentity,
+                                                         CGAffineTransformMakeScale(0.3, 0.3));
     [UIView animateWithDuration:0.2
                      animations:^{
-                       self.alpha = 1.0;
-                       [self setTransform:CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1)];
+                       self.contentView.alpha = 1.0;
+                       [self.contentView setTransform:CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1)];
                      }
                      completion:^(BOOL finished) {
                        if (!finished) {
@@ -96,8 +116,8 @@
                        }
                        [UIView animateWithDuration:0.13
                                         animations:^{
-                                          self.alpha = 1.0;
-                                          [self setTransform:CGAffineTransformScale(CGAffineTransformIdentity,
+                                          self.contentView.alpha = 1.0;
+                                          [self.contentView setTransform:CGAffineTransformScale(CGAffineTransformIdentity,
                                                                                     0.9, 0.9)];
                                         }
                                         completion:^(BOOL finished) {
@@ -106,8 +126,8 @@
                                           }
                                           [UIView animateWithDuration:0.13
                                                            animations:^{
-                                                             self.alpha = 1.0;
-                                                             [self setTransform:CGAffineTransformScale(CGAffineTransformIdentity, 1, 1)];
+                                                             self.contentView.alpha = 1.0;
+                                                             [self.contentView setTransform:CGAffineTransformScale(CGAffineTransformIdentity, 1, 1)];
                                                            }
                                                            completion:^(BOOL finished) {
                                                              
@@ -116,21 +136,21 @@
                      }];
   }
   else {
-    self.alpha = 1.0f;
+    self.contentView.alpha = 1.0f;
   }
 }
 
-+ (void)hideFrom:(UIView *)view animated:(BOOL)animated afterDelay:(NSTimeInterval)delay {
++ (void)hideFrom:(UIView *)view {
   CCPopView *popView = objc_getAssociatedObject(view, (__bridge const void *)([self class]));
   if (popView) {
-    [popView hide:animated afterDelay:delay];
+    [popView hide:NO];
   }
 }
 
-+ (void)hideFrom:(UIView *)view animated:(BOOL)animated {
++ (void)hideWithAnimationFrom:(UIView *)view {
   CCPopView *popView = objc_getAssociatedObject(view, (__bridge const void *)([self class]));
   if (popView) {
-    [popView hide:animated];
+    [popView hide:YES];
   }
 }
 
@@ -158,14 +178,15 @@
     }
     _countRetain = 0;
   }
-  self.transform = CGAffineTransformIdentity;
-  [self.layer removeAllAnimations];
+  [self.contentView.layer removeAllAnimations];
+  self.contentView.transform = CGAffineTransformIdentity;
   if (animated) {
     [UIView animateWithDuration:0.3
                      animations:^{
-                       self.transform = CGAffineTransformConcat(CGAffineTransformIdentity,
-                                                                CGAffineTransformMakeScale(0.5f, 0.5f));
-                       self.alpha = 0.2f;
+                       self.contentView.transform = CGAffineTransformConcat(CGAffineTransformIdentity,
+                                                                            CGAffineTransformMakeScale(0.5f, 0.5f));
+                       self.contentView.alpha = 0.2f;
+                       self.maskView.alpha = 0.2;
                      }
                      completion:^(BOOL finished) {
                        [self _hide];
@@ -177,7 +198,7 @@
 }
 
 - (void)_hide {
-  self.alpha = 0.0f;
+  [self.contentView removeFromSuperview];
   [self.maskView removeFromSuperview];
   [self removeFromSuperview];
 }

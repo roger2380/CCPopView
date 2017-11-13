@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6519C4B41EED838400E16AA5 /* CCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519C4A91EED838400E16AA5 /* CCAlertView.m */; };
-		6519C4B51EED838400E16AA5 /* CCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519C4A91EED838400E16AA5 /* CCAlertView.m */; };
-		6519C4B61EED838400E16AA5 /* CCAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519C4AB1EED838400E16AA5 /* CCAnimationView.m */; };
-		6519C4B71EED838400E16AA5 /* CCAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519C4AB1EED838400E16AA5 /* CCAnimationView.m */; };
-		6519C4B81EED838400E16AA5 /* CCLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519C4AD1EED838400E16AA5 /* CCLoadingView.m */; };
-		6519C4B91EED838400E16AA5 /* CCLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519C4AD1EED838400E16AA5 /* CCLoadingView.m */; };
-		6519C4BA1EED838400E16AA5 /* CCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519C4B01EED838400E16AA5 /* CCPopView.m */; };
-		6519C4BB1EED838400E16AA5 /* CCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519C4B01EED838400E16AA5 /* CCPopView.m */; };
-		6519C4BC1EED838400E16AA5 /* UIView+CCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519C4B31EED838400E16AA5 /* UIView+CCPopView.m */; };
-		6519C4BD1EED838400E16AA5 /* UIView+CCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519C4B31EED838400E16AA5 /* UIView+CCPopView.m */; };
+		653DD6EB1FB9940E00B9855F /* CCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 653DD6E01FB9940E00B9855F /* CCAlertView.m */; };
+		653DD6EC1FB9940E00B9855F /* CCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 653DD6E01FB9940E00B9855F /* CCAlertView.m */; };
+		653DD6ED1FB9940E00B9855F /* CCAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 653DD6E21FB9940E00B9855F /* CCAnimationView.m */; };
+		653DD6EE1FB9940E00B9855F /* CCAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 653DD6E21FB9940E00B9855F /* CCAnimationView.m */; };
+		653DD6EF1FB9940E00B9855F /* CCLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 653DD6E41FB9940E00B9855F /* CCLoadingView.m */; };
+		653DD6F01FB9940E00B9855F /* CCLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 653DD6E41FB9940E00B9855F /* CCLoadingView.m */; };
+		653DD6F11FB9940E00B9855F /* CCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 653DD6E71FB9940E00B9855F /* CCPopView.m */; };
+		653DD6F21FB9940E00B9855F /* CCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 653DD6E71FB9940E00B9855F /* CCPopView.m */; };
+		653DD6FA1FB9A27900B9855F /* CCPopConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 653DD6F91FB9A27900B9855F /* CCPopConfig.m */; };
+		653DD6FB1FB9A27900B9855F /* CCPopConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 653DD6F91FB9A27900B9855F /* CCPopConfig.m */; };
 		658F34661EE933240024D8B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 658F34651EE933240024D8B6 /* main.m */; };
 		658F34691EE933240024D8B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 658F34681EE933240024D8B6 /* AppDelegate.m */; };
 		658F346C1EE933240024D8B6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 658F346B1EE933240024D8B6 /* ViewController.m */; };
@@ -38,18 +38,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6519C4A81EED838400E16AA5 /* CCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAlertView.h; sourceTree = "<group>"; };
-		6519C4A91EED838400E16AA5 /* CCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAlertView.m; sourceTree = "<group>"; };
-		6519C4AA1EED838400E16AA5 /* CCAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAnimationView.h; sourceTree = "<group>"; };
-		6519C4AB1EED838400E16AA5 /* CCAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimationView.m; sourceTree = "<group>"; };
-		6519C4AC1EED838400E16AA5 /* CCLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLoadingView.h; sourceTree = "<group>"; };
-		6519C4AD1EED838400E16AA5 /* CCLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLoadingView.m; sourceTree = "<group>"; };
-		6519C4AE1EED838400E16AA5 /* CCPopConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPopConfig.h; sourceTree = "<group>"; };
-		6519C4AF1EED838400E16AA5 /* CCPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPopView.h; sourceTree = "<group>"; };
-		6519C4B01EED838400E16AA5 /* CCPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPopView.m; sourceTree = "<group>"; };
-		6519C4B11EED838400E16AA5 /* CCPopView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCPopView+Private.h"; sourceTree = "<group>"; };
-		6519C4B21EED838400E16AA5 /* UIView+CCPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CCPopView.h"; sourceTree = "<group>"; };
-		6519C4B31EED838400E16AA5 /* UIView+CCPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CCPopView.m"; sourceTree = "<group>"; };
+		653DD6DF1FB9940E00B9855F /* CCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAlertView.h; sourceTree = "<group>"; };
+		653DD6E01FB9940E00B9855F /* CCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAlertView.m; sourceTree = "<group>"; };
+		653DD6E11FB9940E00B9855F /* CCAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAnimationView.h; sourceTree = "<group>"; };
+		653DD6E21FB9940E00B9855F /* CCAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimationView.m; sourceTree = "<group>"; };
+		653DD6E31FB9940E00B9855F /* CCLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLoadingView.h; sourceTree = "<group>"; };
+		653DD6E41FB9940E00B9855F /* CCLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLoadingView.m; sourceTree = "<group>"; };
+		653DD6E61FB9940E00B9855F /* CCPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPopView.h; sourceTree = "<group>"; };
+		653DD6E71FB9940E00B9855F /* CCPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPopView.m; sourceTree = "<group>"; };
+		653DD6E81FB9940E00B9855F /* CCPopView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCPopView+Private.h"; sourceTree = "<group>"; };
+		653DD6F81FB9A27900B9855F /* CCPopConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPopConfig.h; sourceTree = "<group>"; };
+		653DD6F91FB9A27900B9855F /* CCPopConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPopConfig.m; sourceTree = "<group>"; };
 		658F34621EE933240024D8B6 /* CCPopViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCPopViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		658F34651EE933240024D8B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		658F34671EE933240024D8B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -102,18 +101,17 @@
 		6539DF9C1E0A2F6100D122DE /* CCPopView */ = {
 			isa = PBXGroup;
 			children = (
-				6519C4A81EED838400E16AA5 /* CCAlertView.h */,
-				6519C4A91EED838400E16AA5 /* CCAlertView.m */,
-				6519C4AA1EED838400E16AA5 /* CCAnimationView.h */,
-				6519C4AB1EED838400E16AA5 /* CCAnimationView.m */,
-				6519C4AC1EED838400E16AA5 /* CCLoadingView.h */,
-				6519C4AD1EED838400E16AA5 /* CCLoadingView.m */,
-				6519C4AE1EED838400E16AA5 /* CCPopConfig.h */,
-				6519C4AF1EED838400E16AA5 /* CCPopView.h */,
-				6519C4B01EED838400E16AA5 /* CCPopView.m */,
-				6519C4B11EED838400E16AA5 /* CCPopView+Private.h */,
-				6519C4B21EED838400E16AA5 /* UIView+CCPopView.h */,
-				6519C4B31EED838400E16AA5 /* UIView+CCPopView.m */,
+				653DD6DF1FB9940E00B9855F /* CCAlertView.h */,
+				653DD6E01FB9940E00B9855F /* CCAlertView.m */,
+				653DD6E11FB9940E00B9855F /* CCAnimationView.h */,
+				653DD6E21FB9940E00B9855F /* CCAnimationView.m */,
+				653DD6E31FB9940E00B9855F /* CCLoadingView.h */,
+				653DD6E41FB9940E00B9855F /* CCLoadingView.m */,
+				653DD6E61FB9940E00B9855F /* CCPopView.h */,
+				653DD6E71FB9940E00B9855F /* CCPopView.m */,
+				653DD6E81FB9940E00B9855F /* CCPopView+Private.h */,
+				653DD6F81FB9A27900B9855F /* CCPopConfig.h */,
+				653DD6F91FB9A27900B9855F /* CCPopConfig.m */,
 			);
 			path = CCPopView;
 			sourceTree = "<group>";
@@ -238,13 +236,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				658F346C1EE933240024D8B6 /* ViewController.m in Sources */,
-				6519C4BC1EED838400E16AA5 /* UIView+CCPopView.m in Sources */,
-				6519C4B61EED838400E16AA5 /* CCAnimationView.m in Sources */,
-				6519C4BA1EED838400E16AA5 /* CCPopView.m in Sources */,
-				6519C4B41EED838400E16AA5 /* CCAlertView.m in Sources */,
+				653DD6ED1FB9940E00B9855F /* CCAnimationView.m in Sources */,
+				653DD6F11FB9940E00B9855F /* CCPopView.m in Sources */,
+				653DD6FA1FB9A27900B9855F /* CCPopConfig.m in Sources */,
+				653DD6EB1FB9940E00B9855F /* CCAlertView.m in Sources */,
 				658F34691EE933240024D8B6 /* AppDelegate.m in Sources */,
 				658F34661EE933240024D8B6 /* main.m in Sources */,
-				6519C4B81EED838400E16AA5 /* CCLoadingView.m in Sources */,
+				653DD6EF1FB9940E00B9855F /* CCLoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,11 +250,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6519C4BD1EED838400E16AA5 /* UIView+CCPopView.m in Sources */,
-				6519C4B51EED838400E16AA5 /* CCAlertView.m in Sources */,
-				6519C4B71EED838400E16AA5 /* CCAnimationView.m in Sources */,
-				6519C4BB1EED838400E16AA5 /* CCPopView.m in Sources */,
-				6519C4B91EED838400E16AA5 /* CCLoadingView.m in Sources */,
+				653DD6EC1FB9940E00B9855F /* CCAlertView.m in Sources */,
+				653DD6EE1FB9940E00B9855F /* CCAnimationView.m in Sources */,
+				653DD6FB1FB9A27900B9855F /* CCPopConfig.m in Sources */,
+				653DD6F21FB9940E00B9855F /* CCPopView.m in Sources */,
+				653DD6F01FB9940E00B9855F /* CCLoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,18 +14,16 @@
 
 @property (nonatomic, strong) UIView *maskView;
 
-+ (id)popForView:(UIView *)view;
-
 //子类重载
 + (BOOL)retainEnable;
 
-+ (CCPopView *)showInView:(UIView *)view animated:(BOOL)animated;
++ (CCPopView *)showInView:(UIView *)view;
++ (CCPopView *)showInViewWithAnimation:(UIView *)view;  //带动画
++ (void)hideFrom:(UIView *)view;
++ (void)hideWithAnimationFrom:(UIView *)view;
 
-+ (void)hideFrom:(UIView *)view animated:(BOOL)animated afterDelay:(NSTimeInterval)delay;
-+ (void)hideFrom:(UIView *)view animated:(BOOL)animated;
-
-- (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay;
+- (void)showInView:(UIView *)view animated:(BOOL)animated;
 - (void)hide:(BOOL)animated;
-
+- (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay;
 
 @end

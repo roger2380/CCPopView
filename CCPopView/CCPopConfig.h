@@ -2,16 +2,16 @@
 //  CCPopConfig.h
 //  CCPopView
 //
-//  Created by xbwu on 16/12/21.
-//  Copyright © 2016年 xbwu. All rights reserved.
+//  Created by xbwu on 13/11/2017.
+//  Copyright © 2017 xbwu. All rights reserved.
 //
 
-#ifndef CCPopConfig_h
-#define CCPopConfig_h
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-//CCAlert
-#define CCALERT_TITLE_FONT [UIFont systemFontOfSize:16]
+@interface CCPopConfig : NSObject
 
-#define CCANIMATION_SIZE CGSizeMake(150, 150)
++ (UIFont *)fontForTitle;
++ (CGSize)animationSize;
 
-#endif /* CCPopConfig_h */
+@end
