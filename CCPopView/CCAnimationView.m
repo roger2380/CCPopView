@@ -19,7 +19,7 @@
 
 @implementation CCAnimationView
 
-- (void)show:(NSNumber*)animated {
+- (void)show:(NSNumber *)animated {
   [super show:animated];
   UIImageView *contentView = (UIImageView *)self.contentView;
   [contentView startAnimating];
