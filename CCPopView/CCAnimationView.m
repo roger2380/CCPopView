@@ -11,37 +11,6 @@
 #import "CCPopView+Private.h"
 #import "CCPopConfig.h"
 
-@interface CCAnimationContentView : UIImageView
-
-@property (nonatomic, strong) UIImageView *imageView;
-
-@end
-
-@implementation CCAnimationContentView
-
-- (UIImageView *)imageView {
-  if (_imageView == nil) {
-    _imageView = [[UIImageView alloc] init];
-    _imageView.backgroundColor = [UIColor clearColor];
-    _imageView.animationDuration = 1;
-    _imageView.animationRepeatCount = 0;
-    [self addSubview:_imageView];
-    
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (UIImage *image in [CCPopConfig animationImages]) {
-      [array addObject:image];
-    }
-    _imageView.animationImages = array.copy;
-  }
-  return _imageView;
-}
-
-- (void)layoutSubviews {
-  self.imageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-}
-
-@end
-
 @interface CCAnimationView() {
   
 }
@@ -52,13 +21,13 @@
 
 - (void)show:(NSNumber*)animated {
   [super show:animated];
-  CCAnimationContentView *contentView = (CCAnimationContentView *)self.contentView;
+  UIImageView *contentView = (UIImageView *)self.contentView;
   [contentView startAnimating];
 }
 
 - (void)_hide {
   [super _hide];
-  CCAnimationContentView *contentView = (CCAnimationContentView *)self.contentView;
+  UIImageView *contentView = (UIImageView *)self.contentView;
   [contentView stopAnimating];
 }
 
@@ -67,8 +36,13 @@
 }
 
 - (void)showInView:(UIView *)view animated:(BOOL)animated {
-  CCAnimationContentView *contentView = [[CCAnimationContentView alloc] init];
+  UIImageView *contentView = [[UIImageView alloc] init];
   self.contentView = contentView;
+  NSMutableArray *array = [[NSMutableArray alloc] init];
+  for (UIImage *image in [CCPopConfig animationImages]) {
+    [array addObject:image];
+  }
+  contentView.animationImages = array.copy;
   [super showInView:view animated:animated];
 }
 
