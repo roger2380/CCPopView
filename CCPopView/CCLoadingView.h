@@ -6,11 +6,8 @@
 //  Copyright © 2017年 xbwu. All rights reserved.
 //
 
-#import "CCPopView.h"
+#import "CCAlertView.h"
 
-@interface CCLoadingView : CCPopView
-
-+ (CCPopView *)showInView:(UIView *)view title:(NSString *)string;
-+ (CCPopView *)showInViewWithAnimation:(UIView *)view title:(NSString *)string;
+@interface CCLoadingView : CCAlertView <CCPopViewContentDelegate>
 
 @end

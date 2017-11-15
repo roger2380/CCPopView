@@ -58,37 +58,36 @@
   _contentView = contentView;
 }
 
-+ (CCPopView *)showInView:(UIView *)view {
-  return [self showInView:view animated:NO];
++ (CCPopView *)showInView:(UIView *)view delegate:(id<CCPopViewContentDelegate>)delegate {
+  return [self showInView:view animated:NO delegate:delegate];
 }
 
-+ (CCPopView *)showInViewWithAnimation:(UIView *)view {
-  return [self showInView:view animated:YES];
++ (CCPopView *)showInViewWithAnimation:(UIView *)view delegate:(id<CCPopViewContentDelegate>)delegate {
+  return [self showInView:view animated:YES delegate:delegate];
 }
 
-+ (CCPopView *)showInView:(UIView *)view animated:(BOOL)animated {
++ (CCPopView *)showInView:(UIView *)view animated:(BOOL)animated delegate:(id<CCPopViewContentDelegate>)delegate {
   CCPopView *popView = [self popForView:view];
-  [popView showInView:view animated:animated];
+  [popView showInView:view animated:animated delegate:delegate];
   return popView;
 }
 
-- (void)showInView:(UIView *)view animated:(BOOL)animated {
+- (void)showInView:(UIView *)view animated:(BOOL)animated delegate:(id<CCPopViewContentDelegate>)delegate {
   [view addSubview:self.maskView];
   [view addSubview:self];
+  self.contentView = [delegate contentViewToPop:self];
+  self.contentView.alpha = 0;
   [self addSubview:self.contentView];
   if ([[self class] retainEnable]) {
     self.countRetain++;
   }
-  CGSize size = [self size];
+  CGSize size = [delegate sizeForContentOfPop:self];
   self.frame = CGRectMake(0, 0, size.width * 1.1, size.height * 1.1);
   self.contentView.frame = CGRectMake(0.05 * size.width, 0.05 * size.height, size.width, size.height);
   [self setNeedsLayout];
   [self.contentView setNeedsLayout];
-  [self show:@(animated)];
-}
-
-- (CGSize)size {
-  return CGSizeZero;
+  [self.contentView layoutIfNeeded];
+  [self performSelector:@selector(show:) withObject:@(animated) afterDelay:0.1];
 }
 
 + (id)popForView:(UIView *)view {

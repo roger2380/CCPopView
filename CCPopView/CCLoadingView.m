@@ -43,7 +43,7 @@
 
 + (CGSize)sizeForTitle:(NSString *)title {
   CGSize size = [title sizeWithFont:[CCPopConfig fontForTitle]
-                        constrainedToSize:CGSizeMake(300, 10000)];
+                  constrainedToSize:CGSizeMake(300, 10000)];
   return CGSizeMake(size.width + 30, size.height + 55);
 }
 
@@ -71,34 +71,17 @@
 
 @implementation CCLoadingView
 
-
-+ (CCPopView *)showInView:(UIView *)view title:(NSString *)string {
-  return [self showInView:view title:string animated:NO];
+- (CGSize)sizeForContentOfPop:(CCPopView *)popView {
+  return [CCLoadingContentView sizeForTitle:self.title];
 }
 
-+ (CCPopView *)showInViewWithAnimation:(UIView *)view title:(NSString *)string {
-  return [self showInView:view title:string animated:YES];
-}
-
-+ (CCLoadingView *)showInView:(UIView *)view title:(NSString *)string animated:(BOOL)animated {
-  CCLoadingView *popView = [self popForView:view];
-  [popView showInView:view title:string animated:animated];
-  return popView;
-}
-
-- (void)showInView:(UIView *)view title:(NSString *)string animated:(BOOL)animated {
+- (UIView *)contentViewToPop:(CCPopView *)popView {
   CCLoadingContentView *contentView = [[CCLoadingContentView alloc] init];
   contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
   contentView.layer.cornerRadius = 5;
   contentView.clipsToBounds = YES;
-  self.title = string;
-  contentView.titleLabel.text = string;
-  self.contentView = contentView;
-  [super showInView:view animated:animated];
-}
-
-- (CGSize)size {
-  return [CCLoadingContentView sizeForTitle:self.title];
+  contentView.titleLabel.text = self.title;
+  return contentView;
 }
 
 - (void)show:(NSNumber *)animated {

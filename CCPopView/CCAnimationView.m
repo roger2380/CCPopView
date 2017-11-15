@@ -11,13 +11,25 @@
 #import "CCPopView+Private.h"
 #import "CCPopConfig.h"
 
-@interface CCAnimationView() {
+@interface CCAnimationView() <CCPopViewContentDelegate> {
   
 }
 
 @end
 
 @implementation CCAnimationView
+
++ (CCAnimationView *)showInView:(UIView *)view {
+  CCAnimationView *popView = [self popForView:view];
+  [popView showInView:view animated:NO delegate:popView];
+  return popView;
+}
+
++ (CCAnimationView *)showInViewWithAnimation:(UIView *)view {
+  CCAnimationView *popView = [self popForView:view];
+  [popView showInView:view animated:YES delegate:popView];
+  return popView;
+}
 
 - (void)show:(NSNumber *)animated {
   [super show:animated];
@@ -31,19 +43,18 @@
   [contentView stopAnimating];
 }
 
-- (CGSize)size {
+- (CGSize)sizeForContentOfPop:(CCPopView *)popView {
   return [CCPopConfig animationSize];
 }
 
-- (void)showInView:(UIView *)view animated:(BOOL)animated {
+- (UIView *)contentViewToPop:(CCPopView *)popView {
   UIImageView *contentView = [[UIImageView alloc] init];
-  self.contentView = contentView;
   NSMutableArray *array = [[NSMutableArray alloc] init];
   for (UIImage *image in [CCPopConfig animationImages]) {
     [array addObject:image];
   }
   contentView.animationImages = array.copy;
-  [super showInView:view animated:animated];
+  return contentView;
 }
 
 @end

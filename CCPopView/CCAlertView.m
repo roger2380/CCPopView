@@ -46,7 +46,7 @@
 
 @end
 
-@interface CCAlertView() {
+@interface CCAlertView() <CCPopViewContentDelegate> {
   
 }
 
@@ -56,11 +56,19 @@
 
 @implementation CCAlertView
 
-+ (CCPopView *)showInView:(UIView *)view title:(NSString *)string {
++ (CCAlertView *)showInView:(UIView *)view {
+  return [self showInView:view title:nil animated:NO];
+}
+
++ (CCAlertView *)showInViewWithAnimation:(UIView *)view {
+  return [self showInView:view title:nil animated:YES];
+}
+
++ (CCAlertView *)showInView:(UIView *)view title:(NSString *)string {
   return [self showInView:view title:string animated:NO];
 }
 
-+ (CCPopView *)showInViewWithAnimation:(UIView *)view title:(NSString *)string {
++ (CCAlertView *)showInViewWithAnimation:(UIView *)view title:(NSString *)string {
   return [self showInView:view title:string animated:YES];
 }
 
@@ -71,18 +79,21 @@
 }
 
 - (void)showInView:(UIView *)view title:(NSString *)string animated:(BOOL)animated {
-  CCAlertContentView *contentView = [[CCAlertContentView alloc] init];
-  contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
   self.title = string;
-  contentView.layer.cornerRadius = 5;
-  contentView.clipsToBounds = YES;
-  contentView.titleLabel.text = string;
-  self.contentView = contentView;
-  [super showInView:view animated:animated];
+  [super showInView:view animated:animated delegate:self];
 }
 
-- (CGSize)size {
+- (CGSize)sizeForContentOfPop:(CCPopView *)popView {
   return [CCAlertContentView sizeForTitle:self.title];
+}
+
+- (UIView *)contentViewToPop:(CCPopView *)popView {
+  CCAlertContentView *contentView = [[CCAlertContentView alloc] init];
+  contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+  contentView.layer.cornerRadius = 5;
+  contentView.clipsToBounds = YES;
+  contentView.titleLabel.text = self.title;
+  return contentView;
 }
 
 @end

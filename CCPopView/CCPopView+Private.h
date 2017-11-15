@@ -16,8 +16,6 @@
 
 + (id)popForView:(UIView *)view;
 
-- (CGSize)size;
-
 @property (nonatomic, assign) int countRetain;
 @property (nonatomic, strong) UIView *contentView;
 

@@ -10,6 +10,9 @@
 
 @interface CCAlertView : CCPopView
 
++ (CCPopView *)showInView:(UIView *)view;
++ (CCPopView *)showInViewWithAnimation:(UIView *)view;
+
 + (CCPopView *)showInView:(UIView *)view title:(NSString *)string;
 + (CCPopView *)showInViewWithAnimation:(UIView *)view title:(NSString *)string;
 

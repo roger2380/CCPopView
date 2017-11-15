@@ -13,6 +13,16 @@
 		658F346F1EE933240024D8B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658F346D1EE933240024D8B6 /* Main.storyboard */; };
 		658F34711EE933240024D8B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 658F34701EE933240024D8B6 /* Assets.xcassets */; };
 		658F34741EE933240024D8B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658F34721EE933240024D8B6 /* LaunchScreen.storyboard */; };
+		65B8827C1FBC493A00CA42A8 /* CCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B882721FBC493A00CA42A8 /* CCAlertView.m */; };
+		65B8827D1FBC493A00CA42A8 /* CCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B882721FBC493A00CA42A8 /* CCAlertView.m */; };
+		65B8827E1FBC493A00CA42A8 /* CCAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B882741FBC493A00CA42A8 /* CCAnimationView.m */; };
+		65B8827F1FBC493A00CA42A8 /* CCAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B882741FBC493A00CA42A8 /* CCAnimationView.m */; };
+		65B882801FBC493A00CA42A8 /* CCLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B882761FBC493A00CA42A8 /* CCLoadingView.m */; };
+		65B882811FBC493A00CA42A8 /* CCLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B882761FBC493A00CA42A8 /* CCLoadingView.m */; };
+		65B882821FBC493A00CA42A8 /* CCPopConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B882781FBC493A00CA42A8 /* CCPopConfig.m */; };
+		65B882831FBC493A00CA42A8 /* CCPopConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B882781FBC493A00CA42A8 /* CCPopConfig.m */; };
+		65B882841FBC493A00CA42A8 /* CCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B8827A1FBC493A00CA42A8 /* CCPopView.m */; };
+		65B882851FBC493A00CA42A8 /* CCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B8827A1FBC493A00CA42A8 /* CCPopView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,17 +49,17 @@
 		658F34731EE933240024D8B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		658F34751EE933240024D8B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		658F34871EE934490024D8B6 /* libCCPopView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCCPopView.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		65AACAA51FB9E428000F259C /* CCAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAlertView.m; sourceTree = "<group>"; };
-		65AACAA61FB9E428000F259C /* CCAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAlertView.h; sourceTree = "<group>"; };
-		65AACAA71FB9E428000F259C /* CCPopConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPopConfig.h; sourceTree = "<group>"; };
-		65AACAA81FB9E428000F259C /* CCLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCLoadingView.h; sourceTree = "<group>"; };
-		65AACAA91FB9E428000F259C /* CCPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPopView.h; sourceTree = "<group>"; };
-		65AACAAA1FB9E428000F259C /* CCLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCLoadingView.m; sourceTree = "<group>"; };
-		65AACAAB1FB9E429000F259C /* CCPopConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPopConfig.m; sourceTree = "<group>"; };
-		65AACAAC1FB9E429000F259C /* CCAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAnimationView.m; sourceTree = "<group>"; };
-		65AACAAD1FB9E429000F259C /* CCPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPopView.m; sourceTree = "<group>"; };
-		65AACAAE1FB9E429000F259C /* CCPopView+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCPopView+Private.h"; sourceTree = "<group>"; };
-		65AACAAF1FB9E429000F259C /* CCAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAnimationView.h; sourceTree = "<group>"; };
+		65B882711FBC493A00CA42A8 /* CCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAlertView.h; sourceTree = "<group>"; };
+		65B882721FBC493A00CA42A8 /* CCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAlertView.m; sourceTree = "<group>"; };
+		65B882731FBC493A00CA42A8 /* CCAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAnimationView.h; sourceTree = "<group>"; };
+		65B882741FBC493A00CA42A8 /* CCAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAnimationView.m; sourceTree = "<group>"; };
+		65B882751FBC493A00CA42A8 /* CCLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLoadingView.h; sourceTree = "<group>"; };
+		65B882761FBC493A00CA42A8 /* CCLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLoadingView.m; sourceTree = "<group>"; };
+		65B882771FBC493A00CA42A8 /* CCPopConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPopConfig.h; sourceTree = "<group>"; };
+		65B882781FBC493A00CA42A8 /* CCPopConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPopConfig.m; sourceTree = "<group>"; };
+		65B882791FBC493A00CA42A8 /* CCPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPopView.h; sourceTree = "<group>"; };
+		65B8827A1FBC493A00CA42A8 /* CCPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPopView.m; sourceTree = "<group>"; };
+		65B8827B1FBC493A00CA42A8 /* CCPopView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCPopView+Private.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,17 +101,17 @@
 		6539DF9C1E0A2F6100D122DE /* CCPopView */ = {
 			isa = PBXGroup;
 			children = (
-				65AACAA61FB9E428000F259C /* CCAlertView.h */,
-				65AACAA51FB9E428000F259C /* CCAlertView.m */,
-				65AACAAF1FB9E429000F259C /* CCAnimationView.h */,
-				65AACAAC1FB9E429000F259C /* CCAnimationView.m */,
-				65AACAA81FB9E428000F259C /* CCLoadingView.h */,
-				65AACAAA1FB9E428000F259C /* CCLoadingView.m */,
-				65AACAA71FB9E428000F259C /* CCPopConfig.h */,
-				65AACAAB1FB9E429000F259C /* CCPopConfig.m */,
-				65AACAA91FB9E428000F259C /* CCPopView.h */,
-				65AACAAD1FB9E429000F259C /* CCPopView.m */,
-				65AACAAE1FB9E429000F259C /* CCPopView+Private.h */,
+				65B882711FBC493A00CA42A8 /* CCAlertView.h */,
+				65B882721FBC493A00CA42A8 /* CCAlertView.m */,
+				65B882731FBC493A00CA42A8 /* CCAnimationView.h */,
+				65B882741FBC493A00CA42A8 /* CCAnimationView.m */,
+				65B882751FBC493A00CA42A8 /* CCLoadingView.h */,
+				65B882761FBC493A00CA42A8 /* CCLoadingView.m */,
+				65B882771FBC493A00CA42A8 /* CCPopConfig.h */,
+				65B882781FBC493A00CA42A8 /* CCPopConfig.m */,
+				65B882791FBC493A00CA42A8 /* CCPopView.h */,
+				65B8827A1FBC493A00CA42A8 /* CCPopView.m */,
+				65B8827B1FBC493A00CA42A8 /* CCPopView+Private.h */,
 			);
 			path = CCPopView;
 			sourceTree = "<group>";
@@ -226,8 +236,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				658F346C1EE933240024D8B6 /* ViewController.m in Sources */,
+				65B8827E1FBC493A00CA42A8 /* CCAnimationView.m in Sources */,
+				65B8827C1FBC493A00CA42A8 /* CCAlertView.m in Sources */,
 				658F34691EE933240024D8B6 /* AppDelegate.m in Sources */,
 				658F34661EE933240024D8B6 /* main.m in Sources */,
+				65B882801FBC493A00CA42A8 /* CCLoadingView.m in Sources */,
+				65B882841FBC493A00CA42A8 /* CCPopView.m in Sources */,
+				65B882821FBC493A00CA42A8 /* CCPopConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +250,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B8827D1FBC493A00CA42A8 /* CCAlertView.m in Sources */,
+				65B8827F1FBC493A00CA42A8 /* CCAnimationView.m in Sources */,
+				65B882851FBC493A00CA42A8 /* CCPopView.m in Sources */,
+				65B882811FBC493A00CA42A8 /* CCLoadingView.m in Sources */,
+				65B882831FBC493A00CA42A8 /* CCPopConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

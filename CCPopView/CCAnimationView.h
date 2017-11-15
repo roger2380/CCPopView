@@ -10,4 +10,7 @@
 
 @interface CCAnimationView : CCPopView
 
++ (CCPopView *)showInView:(UIView *)view;
++ (CCPopView *)showInViewWithAnimation:(UIView *)view;
+
 @end
