@@ -96,4 +96,12 @@
   [contentView.indicatorView stopAnimating];
 }
 
+- (UIView *)maskView {
+  if (_maskView == nil) {
+    _maskView = [[UIView alloc] init];
+    _maskView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+  }
+  return _maskView;
+}
+
 @end

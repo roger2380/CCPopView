@@ -84,9 +84,7 @@
   CGSize size = [delegate sizeForContentOfPop:self];
   self.frame = CGRectMake(0, 0, size.width * 1.1, size.height * 1.1);
   self.contentView.frame = CGRectMake(0.05 * size.width, 0.05 * size.height, size.width, size.height);
-  [self setNeedsLayout];
-  [self.contentView setNeedsLayout];
-  [self.contentView layoutIfNeeded];
+  [self layoutIfNeeded];
   [self performSelector:@selector(show:) withObject:@(animated) afterDelay:0.1];
 }
 
