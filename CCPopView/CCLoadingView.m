@@ -42,6 +42,9 @@
 }
 
 + (CGSize)sizeForTitle:(NSString *)title {
+  if (title.length == 0) {
+    return CGSizeMake(60, 60);
+  }
   CGSize size = [title sizeWithFont:[CCPopConfig fontForTitle]
                   constrainedToSize:CGSizeMake(300, 10000)];
   return CGSizeMake(size.width + 30, size.height + 55);

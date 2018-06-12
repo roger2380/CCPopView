@@ -37,11 +37,11 @@
 }
 
 - (void)show {
-  [[CCAlertView showInViewWithAnimation:self.view title:@"我的 的 的的的的\ntesteeeetest--test\ntesteeee"] hide:YES afterDelay:2];
+  [[CCAlertView showInViewWithAnimation:self.view title:@""] hide:YES afterDelay:2];
 }
 
 - (void)show1 {
-  [CCLoadingView showInViewWithAnimation:self.view title:@"我的 的 的的的的\ntesteeee"];
+  [CCLoadingView showInViewWithAnimation:self.view title:@"我的 的 的的的的\ntesteeeetest--test\ntesteee"];
 }
 
 - (void)didReceiveMemoryWarning {
